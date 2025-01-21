@@ -17,7 +17,19 @@ This repository contains an **automated testing framework** built using **Java**
 
 ## Project Structure
 
-src/ ├── main/ │ └── java/ │ ├── models/ # POJOs for API request/response bodies │ ├── utils/ # Utility classes for reusable code ├── test/ └── java/ ├── features/ # Cucumber feature files ├── stepdefinitions/ # Step definition files ├── runners/ # Test runner class ├── hooks/ # Hooks for setup/teardown └── reports/ # Extent report configuration
+Configure above for below src/
+├── main/
+│   └── java/
+│       ├── models/           # POJOs for API request/response bodies
+│       ├── utils/            # Utility classes for reusable code
+├── test/
+    └── java/
+        ├── features/         # Cucumber feature files
+        ├── stepdefinitions/  # Step definition files
+        ├── runners/          # Test runner class
+        ├── hooks/            # Hooks for setup/teardown
+        └── reports/          # Extent report configuration
+
 
 
 ---
@@ -45,7 +57,9 @@ This project uses the following dependencies:
 
 ## Setup and Execution
 
-### **1. Clone the Repository**
+### 1. Clone the Repository
+
+Clone the repository and navigate into the project directory:
 
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
@@ -54,17 +68,19 @@ cd your-repo-name
 Open IntelliJ IDEA (or your preferred IDE).
 Import the project as a Maven project.
 3. Install Dependencies
-Ensure that Maven is properly configured.
-Run the following command to install the required dependencies:
+Ensure that Maven is properly configured, then run the following command to install the required dependencies:
+
 bash
 Copy
 Edit
 mvn clean install
 4. Run the Tests
 Using the Test Runner:
-Navigate to the src/test/java/runners/ directory.
-Run the TestRunner.java class.
+
+Navigate to src/test/java/runners/.
+Run TestRunner.java.
 Using Maven Command:
+
 bash
 Copy
 Edit
@@ -76,31 +92,9 @@ bash
 Copy
 Edit
 target/reports/ExtentReport.html
-Example Usage
-Cucumber Feature File
-Example feature file for booking API testing (src/test/resources/features/Booking.feature):
-
-gherkin
-Copy
-Edit
-Feature: Booking API Testing
-
-  Scenario: Create and retrieve a booking
-    Given the booking payload is created
-    When the booking API is called to create a booking
-    Then the created booking can be retrieved
-Step Definition Example
-java
-Copy
-Edit
-@When("the booking API is called to create a booking")
-public void the_booking_api_is_called_to_create_a_booking() {
-    response = request.when().post("https://restful-booker.herokuapp.com/booking");
-    response.prettyPrint(); // Prints the API response
-    bookingId = response.jsonPath().getInt("bookingid");
-}
 Reporting
 Extent Reports provide detailed reports, including:
+
 Pass/Fail status for each step.
 Request and response logs for better transparency.
 Screenshots (if configured) for failed tests.
@@ -112,7 +106,6 @@ Create a new branch for your feature (git checkout -b feature-name).
 Commit your changes (git commit -m "Add feature").
 Push to the branch (git push origin feature-name).
 Open a pull request with a description of your changes.
-
 
 Contact
 For any questions or suggestions, feel free to reach out:
